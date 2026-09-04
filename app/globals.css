@@ -29,10 +29,10 @@ img{max-width:100%;display:block}
 .menu a{position:relative}
 .menu a:after{content:"";position:absolute;left:0;bottom:-9px;width:0;height:2px;background:var(--red);transition:.25s}
 .menu a:hover:after,.menu a.active:after{width:100%}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:13px 20px;font-weight:800;border:1px solid transparent;transition:background-color .2s,border-color .2s,color .2s,box-shadow .2s;cursor:pointer;font-size:14px}
-.btn:hover,.btn:active,.btn:focus-visible{transform:none}
-.btn-primary{background:var(--red);color:white;box-shadow:0 12px 24px rgba(239,31,47,.22)}
-.btn-primary:hover{background:var(--red-dark);box-shadow:0 12px 24px rgba(200,20,32,.26)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border-radius:999px;padding:13px 20px;font-weight:800;border:1px solid transparent;transition:background-color .2s,border-color .2s,color .2s;cursor:pointer;font-size:14px;box-shadow:none}
+.btn:hover,.btn:active,.btn:focus-visible{transform:none;box-shadow:none}
+.btn-primary{background:var(--red);color:white}
+.btn-primary:hover{background:var(--red-dark)}
 .btn-outline{border-color:rgba(11,45,87,.18);color:var(--navy);background:#fff}
 .btn-outline:hover{background:#e6ebf2;border-color:rgba(11,45,87,.38);color:var(--navy-2)}
 .hero{position:relative;overflow:hidden;background:linear-gradient(125deg,var(--navy-2) 0%,var(--navy) 58%,#173f70 100%);color:white}
