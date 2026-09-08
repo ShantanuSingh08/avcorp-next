@@ -20,7 +20,6 @@ import {
   Truck,
   Zap,
 } from "lucide-react";
-import Placeholder from "@/components/Placeholder";
 import JsonLd from "@/components/JsonLd";
 import { categories } from "@/lib/products";
 import { siteConfig } from "@/lib/site";
@@ -141,11 +140,10 @@ export default function HomePage() {
           <div className="hero-panel">
             <div className="hero-card">
               <div className="photo">
-                <span>
-                  Hero product / uniform photography
-                  <br />
-                  can be added here later
-                </span>
+                <img
+                  src="/assets/hero_image.webp"
+                  alt="A V CORP performance textiles and uniform solutions"
+                />
               </div>
               <div className="stat-row">
                 <div className="stat">
@@ -212,7 +210,11 @@ export default function HomePage() {
                 href={`/products/${c.slug}`}
                 key={c.slug}
               >
-                <Placeholder label={`Add ${c.placeholderLabel} photography`} />
+                <img
+                  className="product-photo"
+                  src={c.image}
+                  alt={c.name}
+                />
                 <div className="content">
                   <span className="tag">{c.tag}</span>
                   <h3>{c.name}</h3>

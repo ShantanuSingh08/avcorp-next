@@ -14,6 +14,8 @@ export type Category = {
   heroBlurb: string;
   /** Text used inside the image placeholder blocks */
   placeholderLabel: string;
+  /** Card / hero photography for the category */
+  image: string;
   items: ProductItem[];
 };
 
@@ -27,6 +29,7 @@ export const categories: Category[] = [
     heroBlurb:
       "Technical textiles and performance finishes for uniforms, workwear and demanding environments.",
     placeholderLabel: "fabric product",
+    image: "/assets/performance_fabrics.webp",
     items: [
       {
         name: "Fire Retardant (FR)",
@@ -112,6 +115,7 @@ export const categories: Category[] = [
     heroBlurb:
       "Custom tailored and ready-to-wear uniforms developed around brand, role and working environment.",
     placeholderLabel: "uniform",
+    image: "/assets/uniform_solutions.webp",
     items: [
       {
         name: "Corporate Uniforms",
@@ -158,6 +162,7 @@ export const categories: Category[] = [
     heroBlurb:
       "Durable workwear designed around comfort, visibility, workplace conditions and performance needs.",
     placeholderLabel: "industrial workwear",
+    image: "/assets/industrial_workwear.webp",
     items: [
       {
         name: "Factory Uniforms",
@@ -197,6 +202,7 @@ export const categories: Category[] = [
     heroBlurb:
       "Branded clothing for sales teams, events, gifting, launches and employee programs.",
     placeholderLabel: "promotional apparel",
+    image: "/assets/promotional_apparel.webp",
     items: [
       {
         name: "Polo T-Shirts",
@@ -238,6 +244,7 @@ export const categories: Category[] = [
     heroBlurb:
       "Bed, bath, restaurant and institutional linen for hotels, resorts, corporate guest houses and institutions.",
     placeholderLabel: "hospitality linen",
+    image: "/assets/hospitality_linen.webp",
     items: [
       {
         name: "Bed Linen",
@@ -269,6 +276,7 @@ export const categories: Category[] = [
     heroBlurb:
       "Bags and branded merchandise for employee use, corporate gifting and promotional programs.",
     placeholderLabel: "bags & merchandise",
+    image: "/assets/promotional_merchandise.webp",
     items: [
       {
         name: "Bags",

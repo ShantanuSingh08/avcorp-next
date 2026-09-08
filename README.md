@@ -36,8 +36,9 @@ npm run start     # serve the production build
 | `app/products/page.tsx` | Product overview grid |
 | `app/products/[category]/page.tsx` | One page per catalogue category (statically generated) |
 | `app/contact/page.tsx` | Contact details + enquiry form |
+| `app/api/contact/route.ts` | Sends the enquiry form via Resend |
 | `app/not-found.tsx` | 404 page |
-| `components/` | `TopBar`, `NavBar` (client, mobile menu + active link), `Footer`, `Placeholder`, `ContactForm` (client) |
+| `components/` | `TopBar`, `NavBar` (client, mobile menu + active link), `Footer`, `Placeholder`, `ContactForm` (client, submits to `/api/contact`) |
 | `lib/products.ts` | Category + product data (single source of truth) |
 | `public/assets/av-corp-logo.png` | Logo |
 | `app/favicon.ico` / `app/icon.png` / `app/apple-icon.png` | Favicons (generated from the logo; Next injects the `<link>` tags) |
@@ -59,9 +60,14 @@ npm run start     # serve the production build
 - Image areas are intentional placeholders. To add a real photo, replace
   `<Placeholder label="..." />` with an `<img>` / `next/image` in the relevant
   component or page.
-- The contact form is front-end only. Wire `components/ContactForm.tsx`
-  `handleSubmit` to an API route, email service, WhatsApp link or CRM when going
-  live.
+- The contact form posts to `app/api/contact/route.ts`, which emails the
+  enquiry via [Resend](https://resend.com). Copy `.env.example` to `.env.local`
+  and set `RESEND_API_KEY` (and optionally `CONTACT_TO_EMAIL` /
+  `CONTACT_FROM_EMAIL`) to enable it; without a key the form shows a friendly
+  error instead of failing silently. `CONTACT_FROM_EMAIL` can only stay on
+  Resend's shared `onboarding@resend.dev` address until a domain is verified in
+  the [Resend dashboard](https://resend.com/domains) — after that, switch it to
+  an address on your own domain.
 - To add or edit catalogue items, edit `lib/products.ts` and every page updates
   automatically.
 - Set `NEXT_PUBLIC_SITE_URL` to the production domain before deploying. It feeds

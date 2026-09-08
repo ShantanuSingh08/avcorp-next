@@ -90,6 +90,11 @@ export default async function CategoryPage({
             </aside>
 
             <main>
+              <img
+                className="category-photo"
+                src={cat.image}
+                alt={cat.name}
+              />
               <div className="section-head">
                 <div>
                   <div className="kicker">Product category</div>

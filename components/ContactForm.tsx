@@ -3,13 +3,48 @@
 import { FormEvent, useState } from "react";
 import { categories } from "@/lib/products";
 
-export default function ContactForm() {
-  const [sent, setSent] = useState(false);
+type Status = "idle" | "sending" | "sent" | "error";
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+export default function ContactForm() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSent(true);
-    e.currentTarget.reset();
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    setStatus("sending");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          company: data.get("company"),
+          contact: data.get("contact"),
+          category: data.get("category"),
+          requirement: data.get("requirement"),
+          website: data.get("website"),
+        }),
+      });
+
+      const result = await res.json().catch(() => ({}));
+
+      if (!res.ok) {
+        throw new Error(result.error || "Something went wrong. Please try again.");
+      }
+
+      setStatus("sent");
+      form.reset();
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage(
+        err instanceof Error ? err.message : "Something went wrong. Please try again."
+      );
+    }
   };
 
   return (
@@ -54,14 +89,39 @@ export default function ContactForm() {
         />
       </div>
 
-      <button className="btn btn-primary" type="submit">
-        Send Enquiry
+      {/* Honeypot: hidden from real visitors, left blank; bots tend to fill every field. */}
+      <input
+        type="text"
+        name="website"
+        tabIndex={-1}
+        autoComplete="off"
+        aria-hidden="true"
+        style={{
+          position: "absolute",
+          left: "-9999px",
+          width: 1,
+          height: 1,
+          opacity: 0,
+        }}
+      />
+
+      <button
+        className="btn btn-primary"
+        type="submit"
+        disabled={status === "sending"}
+      >
+        {status === "sending" ? "Sending..." : "Send Enquiry"}
       </button>
 
-      {sent && (
+      {status === "sent" && (
         <p className="form-note" role="status">
-          Preview form only. Connect this to email, CRM or WhatsApp when the site
-          goes live.
+          Thanks! Your enquiry has been sent. We&rsquo;ll get back to you shortly.
+        </p>
+      )}
+
+      {status === "error" && (
+        <p className="form-note form-note-error" role="alert">
+          {errorMessage}
         </p>
       )}
     </form>

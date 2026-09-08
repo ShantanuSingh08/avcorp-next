@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import Placeholder from "@/components/Placeholder";
 import JsonLd from "@/components/JsonLd";
 import { categories } from "@/lib/products";
 import {
@@ -67,7 +66,11 @@ export default function ProductsPage() {
                 href={`/products/${c.slug}`}
                 key={c.slug}
               >
-                <Placeholder label={`${c.name} photos`} />
+                <img
+                  className="product-photo"
+                  src={c.image}
+                  alt={c.name}
+                />
                 <div className="content">
                   <span className="tag">{c.tag}</span>
                   <h3>{c.name}</h3>
