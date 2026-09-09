@@ -114,7 +114,16 @@ export default async function CategoryPage({
                     id={slugify(item.name)}
                     key={item.name}
                   >
-                    <Placeholder label={`Add ${item.name} photo`} />
+                    {item.image ? (
+                      <img
+                        className="product-photo"
+                        src={encodeURI(item.image)}
+                        alt={item.name}
+                        loading="lazy"
+                      />
+                    ) : (
+                      <Placeholder label={`Add ${item.name} photo`} />
+                    )}
                     <div className="body">
                       <h3>{item.name}</h3>
                       <p>{item.description}</p>

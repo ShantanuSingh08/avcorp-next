@@ -267,6 +267,11 @@ export default function HomePage() {
               performance needs.
             </p>
           </div>
+          <img
+            className="industry-banner"
+            src="/assets/hero_image_2.webp"
+            alt="A V CORP uniforms across industries — industrial workwear, healthcare, hospitality, corporate and retail"
+          />
           <div className="industry-grid">
             {industries.map((i) => (
               <div className="industry" key={i.label}>
