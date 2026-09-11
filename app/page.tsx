@@ -112,8 +112,9 @@ export default function HomePage() {
         ])}
       />
       <header className="hero">
+        <div className="hero-bg" aria-hidden="true" />
         <div className="container">
-          <div>
+          <div className="hero-content">
             <div className="eyebrow">Three generations of textile expertise</div>
             <h1>
               Performance textiles.
@@ -136,28 +137,18 @@ export default function HomePage() {
                 Discuss Your Requirement
               </Link>
             </div>
-          </div>
-          <div className="hero-panel">
-            <div className="hero-card">
-              <div className="photo">
-                <img
-                  src="/assets/hero_image.webp"
-                  alt="A V CORP performance textiles and uniform solutions"
-                />
+            <div className="stat-row">
+              <div className="stat">
+                <strong>30+</strong>
+                <span>Years Experience</span>
               </div>
-              <div className="stat-row">
-                <div className="stat">
-                  <strong>30+</strong>
-                  <span>Years Experience</span>
-                </div>
-                <div className="stat">
-                  <strong>3</strong>
-                  <span>Generations Expertise</span>
-                </div>
-                <div className="stat">
-                  <strong>Pan India</strong>
-                  <span>Supply Capability</span>
-                </div>
+              <div className="stat">
+                <strong>3</strong>
+                <span>Generations Expertise</span>
+              </div>
+              <div className="stat">
+                <strong>Pan India</strong>
+                <span>Supply Capability</span>
               </div>
             </div>
           </div>
