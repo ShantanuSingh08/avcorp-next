@@ -183,6 +183,23 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="banner-section">
+        <div className="container">
+          <a
+            href="https://www.aernexworkwear.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Explore Aernex, engineered-fibre protective workwear by A V CORP"
+          >
+            <img
+              className="ad-banner"
+              src="/assets/Aernex Banner for HomePage AVCORP.webp"
+              alt="Aernex by A V CORP — engineered fibres, inherent protection. High-performance inherent protection fabrics for tough environments: Ignis, Staticore, Corex, Sentinel, Thermaguard."
+            />
+          </a>
+        </div>
+      </section>
+
       <section className="soft">
         <div className="container">
           <div className="section-head">

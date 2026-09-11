@@ -313,6 +313,27 @@ section {
   padding: 90px 0
 }
 
+.banner-section {
+  padding: 0 0 90px
+}
+
+.ad-banner {
+  width: 100%;
+  aspect-ratio: 1942 / 809;
+  object-fit: cover;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  transition: transform .25s
+}
+
+.banner-section a {
+  display: block
+}
+
+.banner-section a:hover .ad-banner {
+  transform: scale(1.01)
+}
+
 .section-head {
   display: flex;
   justify-content: space-between;
