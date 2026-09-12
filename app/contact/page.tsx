@@ -74,7 +74,7 @@ export default function ContactPage() {
               <p>
                 <strong>Business entities</strong>
                 <br />
-                A V Corp | Psynox Ventures LLP | Partex Corporation
+                A V Corp
               </p>
             </div>
 
